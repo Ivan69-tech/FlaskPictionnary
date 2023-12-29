@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="col-12 text-center p-1"> Dessine dans ce canvas. Ce Pictionnary est basé sur une websocket. Plusieurs joueurs peuvent se connecter. Si un joueur dessine, tous les autres voient son dessin.</div>
+
+<div class="col-12 text-center p-1">
+    <div id='myContainer'></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script src="{{ url_for('static', filename='js/pictionnary.js') }}"> </script>
+
+{% endblock %}
