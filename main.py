@@ -16,4 +16,4 @@ def handle_message(msg):
     socketio.emit('json_response', msg, include_self=False)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
