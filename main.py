@@ -2,7 +2,8 @@ from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='/app/', static_url_path='/static')
+
 socketio = SocketIO(app)
 
 
@@ -16,4 +17,4 @@ def handle_message(msg):
     socketio.emit('json_response', msg, include_self=False)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)

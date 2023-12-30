@@ -1,0 +1,28 @@
+services:
+  reverseproxy:
+    container_name: nginxrp
+    image: nginxrp
+    volumes:
+      - ./nginx/core.conf:/etc/nginx/conf.d/core.conf
+      - ./nginx/proxy.conf:/etc/nginx/conf.d/proxy.conf
+      - ./nginx/html:/var/www/html
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - django-app
+      - flask-app
+    
+      
+  django-app:
+    container_name: django-app
+    image: websocket
+    ports:
+      - "5555:5555"
+
+  flask-app:
+    image: flaskapp
+    ports:
+      - "5000:5000"
+    container_name: flask-app
+
